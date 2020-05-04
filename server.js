@@ -24,3 +24,17 @@ app.listen(3000,()=>{
 app.use('/employee',employeeController);
 
 
+// dependencies
+// require('./models/db');
+
+// const express = require('express');
+// const path = require('path');
+// const hbs = require('express-handlebars');
+// const BodyParser = require('body-parser');
+
+
+
+// const employeeController = require("./controllers/employeeController");
+
+// var app = express();
+// app.use(BodyParser.urlencoded({ extended: true }));
