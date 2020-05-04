@@ -28,10 +28,11 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">{{viewTitle}} </h3>
+                    <a href="/employee/list" class="btn btn-primary">List</a>
                 </div>
                 <div class="panel-body">
                     <form action="/employee" method="POST">
-                    <input type="hidden" name="id" value="{{employee._id}}" >
+                    <input type="hidden" name="_id" value="{{employee._id}}" >
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">

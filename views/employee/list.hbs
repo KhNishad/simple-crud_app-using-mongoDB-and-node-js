@@ -22,7 +22,7 @@
         <h4>Employee List</h4>
 
         </center>
-        <a href="/" class="btn btn-primary">Add Employee</a>
+        <a href="/employee" class="btn btn-primary">Add Employee</a>
         
         <table class="table table-striped">
             <thead>
@@ -42,7 +42,7 @@
                     <td>{{this.Address}}</td>
                     <td>
                         <a href="/employee/{{this._id}}" class="btn btn-primary">Edit</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
+                        <a href="/employee/delete/{{this._id}}" onclick="return confirm('Are You Sure?');" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
         

@@ -3,6 +3,7 @@ var router = express.Router();
 
 const mongoose = require('mongoose');
 
+
 const employe = mongoose.model('employees');
 
 router.get('/',(req,res)=>{
@@ -10,8 +11,17 @@ router.get('/',(req,res)=>{
 });
 
 
-router.post('/',(req,res)=>{
-insert(req,res);
+router.post('/',(req,res)=>{ 
+    if(req.body._id)
+    {
+
+        updateRecord(req, res);
+        
+    }else{
+        insert(req, res);
+       
+    }
+
 });
 // function for inserting data from add employee form to database
 function insert(req, res) {
@@ -26,6 +36,22 @@ function insert(req, res) {
             res.redirect('employee/list');
         } else {
             console.log(err);
+        }
+    });
+}
+
+// update function
+function updateRecord(req, res) {
+   
+    employe.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true } , (err,doc)=>{
+
+        if(!err){
+            //console.log(req.body._id);
+           
+            res.redirect('employee/list');
+        }
+        else{
+            res.send(err);
         }
     });
 }
@@ -59,6 +85,19 @@ router.get('/:id', (req, res) => {
             
         }
     }).lean();
+});
+
+
+// delete record
+router.get('/delete/:id', (req, res) => {
+    employe.findByIdAndRemove(req.params.id,(err,docs)=>{
+        if(!err){
+            res.redirect('/employee/list');
+        }else{
+            res.send(err);
+        }
+    })
+    
 });
 
 module.exports = router;
