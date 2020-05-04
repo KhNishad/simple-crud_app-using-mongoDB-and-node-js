@@ -10,7 +10,7 @@ router.get('/',(req,res)=>{
 });
 
 
-router.post('/employee',(req,res)=>{
+router.post('/',(req,res)=>{
 insert(req,res);
 });
 // function for inserting data from add employee form to database
@@ -32,7 +32,7 @@ function insert(req, res) {
 
 
 // retriving data from database and sending in the table
-router.get('/employee/list', (req, res) => {
+router.get('/list', (req, res) => {
     employe.find((err, docs) => {
         if (!err) {
 
@@ -45,6 +45,20 @@ router.get('/employee/list', (req, res) => {
         }
     }).lean();
 
+});
+
+router.get('/:id', (req, res) => {
+    employe.findById(req.params.id , (err,docs)=>{
+        if(!err){
+            //console.log(docs);
+            
+            res.render('employee/addEmployee.hbs', { viewTitle :"Update" , employee: docs})
+        }
+        else{
+            console.log("error in find by id");
+            
+        }
+    }).lean();
 });
 
 module.exports = router;

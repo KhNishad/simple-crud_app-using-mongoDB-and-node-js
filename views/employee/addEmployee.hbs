@@ -27,26 +27,27 @@
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Register to our system </h3>
+                    <h3 class="panel-title">{{viewTitle}} </h3>
                 </div>
                 <div class="panel-body">
                     <form action="/employee" method="POST">
+                    <input type="hidden" name="id" value="{{employee._id}}" >
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="name" class="form-control input-sm" placeholder="Name">
+                                    <input type="text" name="name" value="{{{employee.Name}}}" class="form-control input-sm" placeholder="Name">
                                 </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="contact" class="form-control input-sm"
+                                    <input type="text" name="contact" class="form-control input-sm" value="{{employee.Contact}}"
                                         placeholder="Contact">
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" name="address" class="form-control input-sm" placeholder="Address">
+                            <input type="text" name="address" value="{{employee.Address}}" class="form-control input-sm" placeholder="Address">
                         </div>
 
 

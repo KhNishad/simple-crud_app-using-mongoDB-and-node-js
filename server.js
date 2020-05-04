@@ -21,6 +21,6 @@ app.listen(3000,()=>{
     
 });
 
-app.use('/',employeeController);
+app.use('/employee',employeeController);
 
 

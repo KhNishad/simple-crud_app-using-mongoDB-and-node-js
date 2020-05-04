@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 var employeeSchema = new mongoose.Schema({
    Name :{
-       type:String
+       type:String,
+     
    },
    Contact :{
        type : String
@@ -11,5 +12,6 @@ var employeeSchema = new mongoose.Schema({
        type: String
    }
 });
+
 
 mongoose.model('employees',employeeSchema);
