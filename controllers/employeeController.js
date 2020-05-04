@@ -14,7 +14,8 @@ router.get('/',(req,res)=>{
 router.post('/',(req,res)=>{ 
     if(req.body._id)
     {
-
+      // console.log(req.body);
+       
         updateRecord(req, res);
         
     }else{
@@ -43,10 +44,10 @@ function insert(req, res) {
 // update function
 function updateRecord(req, res) {
    
-    employe.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true } , (err,doc)=>{
+    employe.findOneAndUpdate({ _id: req.body._id }, { $set: { Name: req.body.name, Contact: req.body.contact, Address:req.body.address}}, { returnOriginal: false }  , (err,doc)=>{
 
         if(!err){
-            //console.log(req.body._id);
+            
            
             res.redirect('employee/list');
         }
