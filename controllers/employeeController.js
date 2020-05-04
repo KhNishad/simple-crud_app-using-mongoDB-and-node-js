@@ -3,13 +3,17 @@ var router = express.Router();
 
 const mongoose = require('mongoose');
 
+// creating a model of the collections of the database
 
 const employe = mongoose.model('employees');
+
+// rendering the home page for employee controller
 
 router.get('/',(req,res)=>{
     res.render('employee/addEmployee.hbs');
 });
 
+// geting the post method from handlebar page
 
 router.post('/',(req,res)=>{ 
     if(req.body._id)
@@ -24,6 +28,7 @@ router.post('/',(req,res)=>{
     }
 
 });
+
 // function for inserting data from add employee form to database
 function insert(req, res) {
     var employee = new employe();
@@ -74,6 +79,8 @@ router.get('/list', (req, res) => {
 
 });
 
+// sending data from database to hbs pages for edit 
+
 router.get('/:id', (req, res) => {
     employe.findById(req.params.id , (err,docs)=>{
         if(!err){
@@ -100,40 +107,6 @@ router.get('/delete/:id', (req, res) => {
     })
     
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = router;
 
