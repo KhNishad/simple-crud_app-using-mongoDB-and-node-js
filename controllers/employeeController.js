@@ -111,7 +111,14 @@ router.get('/delete/:id', (req, res) => {
 module.exports = router;
 
 
+///////////////////////////////////////////////////////////////////////////////////////
+// const express = require('express');
+// var router = express.Router();
 
-// commenting the code
+// const mongoose = require('mongoose');
+
+// // creating a model of the collections of the database
+
+// const employe = mongoose.model('employees');
 
 
