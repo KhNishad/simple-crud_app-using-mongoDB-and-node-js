@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 // connecting database
 
-mongoose.connect('mongodb://localhost:27017/employeeDB', { useNewUrlParser: true, useUnifiedTopology: true }, (error) => {
+mongoose.connect('mongodb+srv://admin:12345@nidcluster-msn3q.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }, (error) => {
     if (!error) {
         console.log("DB connected");
 
@@ -15,6 +15,8 @@ mongoose.connect('mongodb://localhost:27017/employeeDB', { useNewUrlParser: true
 });
 require('./employee.model');
 
+
+// mongo atlas mongodb+srv://admin:<password>@nidcluster-msn3q.mongodb.net/test?retryWrites=true&w=majority
 
 
 
