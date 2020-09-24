@@ -132,5 +132,10 @@ module.exports = router;
 // // creating a model of the collections of the database
 
 // const employe = mongoose.model('employees');
+// const mongoose = require('mongoose');
+
+// // creating a model of the collections of the database
+
+// const employe = mongoose.model('employees');
 
 
